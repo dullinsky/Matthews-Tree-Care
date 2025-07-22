@@ -1,0 +1,1013 @@
+/* ------------------------------
+   Global Styles
+------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #222;
+  overflow-x: hidden;
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Scroll-Fade Animation (Global Utility) */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  will-change: opacity, transform;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* ------------------------------
+   Navigation Bar
+------------------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #9b1b1b;
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row; /* ✅ horizontal layout */
+}
+
+
+
+.logo {
+  white-space: nowrap;       /* ⛔ Prevent wrapping */
+  font-size: 1.6rem;          /* ⬆️ Slightly larger */
+  font-weight: 800;           /* 💪 Stronger bold */
+  color: white;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.nav-links li a {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #4caf50;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;       /* ⬅️ Make them horizontal */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 6px 10px;
+  }
+}
+
+
+
+/* ------------------------------
+   Floating Emergency Button
+------------------------------ */
+.floating-emergency-btn {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  background-color: red;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.floating-emergency-btn:hover {
+  background-color: darkred;
+}
+
+.floating-emergency-btn svg.icon {
+  width: 14px;
+  height: 14px;
+  fill: white;
+  margin-right: 4px;
+}
+
+
+/* ------------------------------
+   Hero Section
+------------------------------ */
+.hero-section {
+  position: relative;
+  padding: 10rem 3rem;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/photos/IMG_hero.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-logo {
+  position: relative;
+  z-index: 3;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem;
+  border-radius: 8px;
+  filter: brightness(1.6) contrast(1.2) drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+}
+
+
+.hero-overlay {
+  position: relative;
+  
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Optional: slight tint over image */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content p {
+  font-size: 1.2rem;  /* slightly larger than before */
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-top: 1rem;
+}
+
+
+.text-overlay {
+  position: relative;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(.5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Add a fading mask using ::before */
+.text-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: inherit;
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  z-index: 0;
+}
+
+/* Keep text above the fade */
+.text-overlay > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.text-overlay h1,
+.text-overlay p {
+  margin: 0;
+  text-shadow: none;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-estimate {
+  background-color: #c62828;
+  color: #fff;
+}
+
+.btn-emergency {
+  background-color: #b71c1c;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+
+
+
+/* ------------------------------
+   Call-to-Action Buttons
+------------------------------ */
+.cta-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #c62828;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #a21919;
+}
+
+
+/* ------------------------------
+   Services Section
+------------------------------ */
+
+.services-section {
+  margin-top: -40px;
+  padding-top: 60px;
+  z-index: 5;
+  position: relative;
+}
+
+
+.services-wrapper {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+
+.service-card {
+  background-color: #fff;
+  border: 1px solid #c62828;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+.service-card h3 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #c62828;
+  font-size: 1.1rem;
+}
+
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* ------------------------------
+   Services Section Wrapper
+------------------------------ */
+.services-section {
+  padding-bottom: 80px;
+}
+
+.services-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+
+
+/* ------------------------------
+   Service Card Icons
+------------------------------ */
+.service-icon {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto 8px; /* Reduce this value */
+}
+
+
+
+.service-card:hover .service-icon {
+  transform: scale(1.05);
+}
+
+
+/* ------------------------------
+   Service Card Icons
+------------------------------ */
+.service-icon {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 10px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+
+/* ------------------------------
+   Slideshow Section
+------------------------------ */
+.photo-slideshow {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  position: relative;
+  border-top: 2px solid #e0e0e0;
+}
+
+.photo-slideshow h2 {
+  font-size: 2rem;
+  color: #c62828;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 12px;
+}
+
+.photo-slideshow p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slideshow-wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  height: 300px;
+}
+
+.slide-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+  pointer-events: auto;
+}
+
+
+/* Navigation Arrows */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.slide-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slide-btn.prev {
+  left: 10px;
+}
+
+.slide-btn.next {
+  right: 10px;
+}
+
+@media (max-width: 600px) {
+  .slide-btn {
+    font-size: 1.4rem;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide {
+    max-height: 400px; /* 🔻 tighter for mobile */
+    transform: translateX(20px);
+  }
+}
+
+
+
+
+/* ------------------------------
+   About Us Section
+------------------------------ */
+.about-preview {
+  background-color: #f5f5f5;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 2px solid #e0e0e0;
+
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-preview h2 {
+  color: #c62828;
+  margin-bottom: 20px;
+}
+
+.about-preview p {
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+
+
+
+/* ------------------------------
+   Contact Section
+------------------------------ */
+.contact {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 2px solid #e0e0e0;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.contact h2 {
+  color: #c62828;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 30px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #c62828;
+  outline: none;
+}
+
+.contact-form button.cta-button {
+  margin-top: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+/* ------------------------------
+   Footer Section
+------------------------------ */
+.site-footer {
+  background-color: #222;
+  color: #eee;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 4px solid #c62828;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.site-footer p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.site-footer a {
+  color: #eee;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: #c62828;
+}
+
+.footer-socials {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.footer-socials i {
+  transition: transform 0.3s ease;
+}
+
+.footer-socials i:hover {
+  transform: scale(1.2);
+  color: #c62828;
+}
+
+
+/* ------------------------------
+   📱 Responsive Grid: 2 Columns on Tablet and Up
+------------------------------ */
+@media (min-width: 600px) {
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+
+
+
+/* ------------------------------
+   ABOUT US SECTION STYLING
+------------------------------ */
+
+.about-section {
+  padding: 120px 20px 40px; /* top padding increased to clear the fixed nav */
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-title {
+  display: inline-block;
+  background-color: #f2f2f2; /* soft red tint */
+  color: #c62828;
+  border-left: 6px solid #c62828;
+  border-right: 6px solid #c62828;
+  padding: 14px 28px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  margin: 0 auto 60px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.about-title::after {
+  content: '';
+  display: block;
+  margin: 12px auto 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #c62828, #a81f1f);
+  border-radius: 2px;
+}
+
+.about-full h2 {
+  text-align: center !important;
+  width: 100%;
+  display: block;
+}
+
+
+
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+
+.about-logo {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #c62828;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-family: 'Lato', 'sans-serif';
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-photo {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.why-choose-box {
+  background-color: #fbe9e7; /* light red tint */
+  padding: 25px;
+  border-radius: 10px;
+  margin-top: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.why-choose-box h3 {
+  color: #c62828;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.why-choose-box ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.05rem;
+}
+
+.why-choose-box li::before {
+  content: '✔ ';
+  color: #2e7d32;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.cta-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #c62828;
+  color: white;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #a81f1f;
+}
+
+
+/* ------------------------------
+   WHY CHOOSE US – ICON GRID WRAPPER
+------------------------------ */
+
+.why-grid-wrapper {
+  background-color: #fff;
+  border: 4px solid #c62828; /* thicker full border */
+  padding: 60px 30px;
+  border-radius: 16px;
+  margin: 80px 16px 60px;  /* top, sides, bottom */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.why-title {
+  text-align: center;
+  font-size: 2.3rem;
+  color: #c62828;
+  margin-bottom: 45px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+
+
+.icon-box {
+  text-align: center;
+  padding: 15px;
+}
+
+.icon-box i {
+  font-size: 2.5rem; /* bolder icons */
+  color: #c62828;
+  margin-bottom: 14px;
+}
+
+.icon-box h4 {
+  font-size: 1.3rem;
+  color: #111;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.icon-box p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ------------------------------
+   ABOUT US LOGO
+------------------------------ */ 
+
+.about-logo-bottom {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.about-logo-bottom img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------------------
+   Contact Modal Styles
+------------------------------ */
+.contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.contact-modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  color: #b71c1c;
+  font-size: 24px;
+  text-align: center;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+}
+
+.modal-content textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.modal-content button[type="submit"] {
+  padding: 12px;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #b71c1c;
+}
+
+
+
